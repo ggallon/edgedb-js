@@ -94,10 +94,12 @@ function decodeRange(buf: ReadBuffer, subCodec: ICodec): any {
 
 export class RangeCodec extends Codec implements ICodec {
   private subCodec: ICodec;
+  readonly typeName: string | null;
 
-  constructor(tid: uuid, subCodec: ICodec) {
+  constructor(tid: uuid, typeName: string | null, subCodec: ICodec) {
     super(tid);
     this.subCodec = subCodec;
+    this.typeName = typeName;
   }
 
   encode(buf: WriteBuffer, obj: any) {
