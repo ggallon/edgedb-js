@@ -1031,7 +1031,7 @@ export class ReadBuffer {
   }
 
   readBoolean(): boolean {
-    return this.readUInt8() != 0;
+    return this.readUInt8() !== 0;
   }
 
   readBuffer(size: number): Uint8Array {
