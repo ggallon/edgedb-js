@@ -18,7 +18,7 @@
 
 import { ReadBuffer, utf8Decoder } from "../primitives/buffer";
 import LRU from "../primitives/lru";
-import { ICodec, uuid, ScalarCodec } from "./ifaces";
+import { type ICodec, type uuid, ScalarCodec } from "./ifaces";
 import { NULL_CODEC, SCALAR_CODECS } from "./codecs";
 import { NULL_CODEC_ID, KNOWN_TYPES, KNOWN_TYPENAMES } from "./consts";
 import { EMPTY_TUPLE_CODEC, EMPTY_TUPLE_CODEC_ID, TupleCodec } from "./tuple";
@@ -31,7 +31,7 @@ import { EnumCodec } from "./enum";
 import { ObjectCodec } from "./object";
 import { SetCodec } from "./set";
 import { MultiRangeCodec, RangeCodec } from "./range";
-import { ProtocolVersion } from "../ifaces";
+import type { ProtocolVersion } from "../ifaces";
 import { versionGreaterThanOrEqual } from "../utils";
 import { SparseObjectCodec } from "./sparseObject";
 import { ProtocolError, InternalClientError } from "../errors";
@@ -49,12 +49,9 @@ const CTYPE_ARRAY = 6;
 const CTYPE_ENUM = 7;
 const CTYPE_INPUT_SHAPE = 8;
 const CTYPE_RANGE = 9;
-<<<<<<< HEAD
-const CTYPE_MULTIRANGE = 12;
-=======
 const CTYPE_OBJECT = 10;
 const CTYPE_COMPOUND = 11;
->>>>>>> 1dc6053 (Add basic support for protocol v2)
+const CTYPE_MULTIRANGE = 12;
 
 export interface CustomCodecSpec {
   int64_bigint?: boolean;
@@ -312,9 +309,9 @@ export class CodecsRegistry {
       case CTYPE_SHAPE:
       case CTYPE_INPUT_SHAPE: {
         if (t === CTYPE_SHAPE && isProtoV2) {
-          // @ts-expect-error
+          // @ts-expect-error reserved for future use
           const isEphemeralFreeShape = frb.readBoolean();
-          // @ts-expect-error
+          // @ts-expect-error reserved for future use
           const objTypePos = frb.readUInt16();
         }
 
@@ -352,7 +349,7 @@ export class CodecsRegistry {
 
           if (t === CTYPE_SHAPE && isProtoV2) {
             const sourceTypePos = frb.readUInt16();
-            // @ts-expect-error
+            // @ts-expect-error reserved for future use
             const sourceType = cl[sourceTypePos];
           }
         }
@@ -379,7 +376,7 @@ export class CodecsRegistry {
       case CTYPE_SCALAR: {
         if (isProtoV2) {
           const typeName = frb.readString();
-          // @ts-expect-error
+          // @ts-expect-error reserved for future use
           const isSchemaDefined = frb.readBoolean();
 
           const ancestorCount = frb.readUInt16();
@@ -447,12 +444,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error
+          // @ts-expect-error reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error
+            // @ts-expect-error reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
@@ -479,12 +476,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error
+          // @ts-expect-error reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error
+            // @ts-expect-error reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
@@ -513,12 +510,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error
+          // @ts-expect-error reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error
+            // @ts-expect-error reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
@@ -546,12 +543,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error
+          // @ts-expect-error reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error
+            // @ts-expect-error reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
@@ -572,12 +569,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error
+          // @ts-expect-error reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error
+            // @ts-expect-error reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
