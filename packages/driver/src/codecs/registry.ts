@@ -309,9 +309,9 @@ export class CodecsRegistry {
       case CTYPE_SHAPE:
       case CTYPE_INPUT_SHAPE: {
         if (t === CTYPE_SHAPE && isProtoV2) {
-          // @ts-expect-error reserved for future use
+          // @ts-expect-error: reserved for future use
           const isEphemeralFreeShape = frb.readBoolean();
-          // @ts-expect-error reserved for future use
+          // @ts-expect-error: reserved for future use
           const objTypePos = frb.readUInt16();
         }
 
@@ -349,7 +349,7 @@ export class CodecsRegistry {
 
           if (t === CTYPE_SHAPE && isProtoV2) {
             const sourceTypePos = frb.readUInt16();
-            // @ts-expect-error reserved for future use
+            // @ts-expect-error: reserved for future use
             const sourceType = cl[sourceTypePos];
           }
         }
@@ -376,7 +376,7 @@ export class CodecsRegistry {
       case CTYPE_SCALAR: {
         if (isProtoV2) {
           const typeName = frb.readString();
-          // @ts-expect-error reserved for future use
+          // @ts-expect-error: reserved for future use
           const isSchemaDefined = frb.readBoolean();
 
           const ancestorCount = frb.readUInt16();
@@ -444,12 +444,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error reserved for future use
+          // @ts-expect-error: reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error reserved for future use
+            // @ts-expect-error: reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
@@ -476,12 +476,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error reserved for future use
+          // @ts-expect-error: reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error reserved for future use
+            // @ts-expect-error: reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
@@ -510,12 +510,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error reserved for future use
+          // @ts-expect-error: reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error reserved for future use
+            // @ts-expect-error: reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
@@ -543,12 +543,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error reserved for future use
+          // @ts-expect-error: reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error reserved for future use
+            // @ts-expect-error: reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
@@ -569,12 +569,12 @@ export class CodecsRegistry {
         let typeName: string | null = null;
         if (isProtoV2) {
           typeName = frb.readString();
-          // @ts-expect-error reserved for future use
+          // @ts-expect-error: reserved for future use
           const isSchemaDefined = frb.readBoolean();
           const ancestorCount = frb.readUInt16();
           for (let i = 0; i < ancestorCount; i++) {
             const ancestorPos = frb.readUInt16();
-            // @ts-expect-error reserved for future use
+            // @ts-expect-error: reserved for future use
             const ancestorCodec = cl[ancestorPos];
           }
         }
